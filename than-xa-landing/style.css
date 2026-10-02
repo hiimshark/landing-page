@@ -1,0 +1,116 @@
+/* Custom CSS for THẦN XÀ Digital Experience (Performance Optimized) */
+
+:root {
+  --color-abyss: #070b0e;
+  --color-gold: #d4af37;
+  --color-ember: #e04a43;
+}
+
+html {
+  background-color: var(--color-abyss);
+  scroll-behavior: auto !important; /* Managed by Lenis for buttery smoothness */
+}
+
+/* Hardware Acceleration & Containment */
+#hero-art-layer {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* High-performance dark glass card styling */
+.myth-card, .power-card, .hotspot-card {
+  background: rgba(13, 20, 26, 0.95) !important;
+  opacity: 1 !important;
+  transform: translateZ(0);
+}
+
+/* Shimmering Gold Gradient for Titles */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f9e79f 0%, #d4af37 40%, #aa8010 70%, #fef5d1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Radial Vignette to focus center of painting */
+.bg-radial-vignette {
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(7, 11, 14, 0.85) 90%);
+  pointer-events: none;
+}
+
+/* Golden Glow on Buttons */
+.btn-gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-gold-glow:hover {
+  box-shadow: 0 0 25px rgba(243, 208, 104, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Hotspot Hover & Tooltip */
+.hotspot-card {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hotspot:hover .hotspot-card {
+  display: block;
+  animation: fadeInTooltip 0.2s ease-out forwards;
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Zen Mode Active State */
+body.zen-active header,
+body.zen-active #myth,
+body.zen-active #hotspots,
+body.zen-active #powers,
+body.zen-active #journey,
+body.zen-active .ui-interactive-layer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.zen-active #hero-art-container {
+  z-index: 40 !important;
+}
+
+body.zen-active #btn-zen {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 50 !important;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  border-color: #d4af37;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070b0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c2830;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
